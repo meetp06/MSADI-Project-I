@@ -1,0 +1,60 @@
+[2025-10-02T06:29:21.463+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-02T06:29:21.483+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment140_end2end_single.sf_check_rowcount manual__2025-10-02T06:23:19.658047+00:00 [queued]>
+[2025-10-02T06:29:21.496+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment140_end2end_single.sf_check_rowcount manual__2025-10-02T06:23:19.658047+00:00 [queued]>
+[2025-10-02T06:29:21.496+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-10-02T06:29:21.511+0000] {taskinstance.py:2330} INFO - Executing <Task(SQLExecuteQueryOperator): sf_check_rowcount> on 2025-10-02 06:23:19.658047+00:00
+[2025-10-02T06:29:21.532+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=992) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-02T06:29:21.537+0000] {standard_task_runner.py:63} INFO - Started process 994 to run task
+[2025-10-02T06:29:21.537+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sentiment140_end2end_single', 'sf_check_rowcount', 'manual__2025-10-02T06:23:19.658047+00:00', '--job-id', '69', '--raw', '--subdir', 'DAGS_FOLDER/edaproject.py', '--cfg-path', '/tmp/tmppg2trtwv']
+[2025-10-02T06:29:21.540+0000] {standard_task_runner.py:91} INFO - Job 69: Subtask sf_check_rowcount
+[2025-10-02T06:29:21.583+0000] {task_command.py:426} INFO - Running <TaskInstance: sentiment140_end2end_single.sf_check_rowcount manual__2025-10-02T06:23:19.658047+00:00 [running]> on host b4099255ca46
+[2025-10-02T06:29:21.638+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment140_end2end_single' AIRFLOW_CTX_TASK_ID='sf_check_rowcount' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T06:23:19.658047+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T06:23:19.658047+00:00'
+[2025-10-02T06:29:21.639+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-02T06:29:21.645+0000] {sql.py:276} INFO - Executing: SELECT COUNT(*) AS ROWS FROM YOUR_DB.PUBLIC.SENTIMENT140_CLEAN;
+[2025-10-02T06:29:21.649+0000] {base.py:84} INFO - Using connection ID 'snowflake_default' for task execution.
+[2025-10-02T06:29:21.654+0000] {base.py:84} INFO - Using connection ID 'snowflake_default' for task execution.
+[2025-10-02T06:29:21.654+0000] {connection.py:399} INFO - Snowflake Connector for Python Version: 3.10.0, Python Version: 3.12.3, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-10-02T06:29:21.655+0000] {connection.py:1239} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-10-02T06:29:23.037+0000] {cursor.py:1149} INFO - Number of results in first chunk: 1
+[2025-10-02T06:29:23.038+0000] {sql.py:470} INFO - Running statement: SELECT COUNT(*) AS ROWS FROM YOUR_DB.PUBLIC.SENTIMENT140_CLEAN;, parameters: None
+[2025-10-02T06:29:23.169+0000] {connection.py:762} INFO - closed
+[2025-10-02T06:29:23.222+0000] {connection.py:768} INFO - No async queries seem to be running, deleting session
+[2025-10-02T06:29:23.289+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-02T06:29:23.290+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/operators/sql.py", line 282, in execute
+    output = hook.run(
+             ^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 395, in run
+    self._run_command(cur, sql_statement, parameters)  # type: ignore[attr-defined]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 475, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1080, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 001003 (42000): 01bf6f65-0306-91dc-0000-00131e67e029: SQL compilation error:
+syntax error line 1 at position 19 unexpected 'ROWS'.
+[2025-10-02T06:29:23.302+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=sentiment140_end2end_single, task_id=sf_check_rowcount, run_id=manual__2025-10-02T06:23:19.658047+00:00, execution_date=20251002T062319, start_date=20251002T062921, end_date=20251002T062923
+[2025-10-02T06:29:23.314+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 69 for task sf_check_rowcount (001003 (42000): 01bf6f65-0306-91dc-0000-00131e67e029: SQL compilation error:
+syntax error line 1 at position 19 unexpected 'ROWS'.; 994)
+[2025-10-02T06:29:23.321+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-02T06:29:23.331+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-02T06:29:23.332+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

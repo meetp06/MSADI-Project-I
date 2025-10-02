@@ -1,0 +1,20 @@
+[2025-10-02T07:40:56.425+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-02T07:40:56.430+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment140_end2end_single.run_eda_and_clean manual__2025-10-02T07:40:35.330938+00:00 [queued]>
+[2025-10-02T07:40:56.432+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment140_end2end_single.run_eda_and_clean manual__2025-10-02T07:40:35.330938+00:00 [queued]>
+[2025-10-02T07:40:56.432+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-10-02T07:40:56.436+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): run_eda_and_clean> on 2025-10-02 07:40:35.330938+00:00
+[2025-10-02T07:40:56.439+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=508) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-02T07:40:56.440+0000] {standard_task_runner.py:63} INFO - Started process 510 to run task
+[2025-10-02T07:40:56.440+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sentiment140_end2end_single', 'run_eda_and_clean', 'manual__2025-10-02T07:40:35.330938+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/edaproject.py', '--cfg-path', '/tmp/tmpz23q89jn']
+[2025-10-02T07:40:56.442+0000] {standard_task_runner.py:91} INFO - Job 84: Subtask run_eda_and_clean
+[2025-10-02T07:40:56.459+0000] {task_command.py:426} INFO - Running <TaskInstance: sentiment140_end2end_single.run_eda_and_clean manual__2025-10-02T07:40:35.330938+00:00 [running]> on host 9d9a5d472595
+[2025-10-02T07:40:56.487+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment140_end2end_single' AIRFLOW_CTX_TASK_ID='run_eda_and_clean' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T07:40:35.330938+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T07:40:35.330938+00:00'
+[2025-10-02T07:40:56.488+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-02T07:41:15.152+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-02T07:41:15.153+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-02T07:41:15.158+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=sentiment140_end2end_single, task_id=run_eda_and_clean, run_id=manual__2025-10-02T07:40:35.330938+00:00, execution_date=20251002T074035, start_date=20251002T074056, end_date=20251002T074115
+[2025-10-02T07:41:15.191+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-02T07:41:15.206+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-02T07:41:15.206+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

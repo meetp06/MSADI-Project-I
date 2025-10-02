@@ -1,0 +1,20 @@
+[2025-10-02T05:31:25.223+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-02T05:31:25.229+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment140_end2end_single.ensure_dirs manual__2025-10-02T05:31:21.972272+00:00 [queued]>
+[2025-10-02T05:31:25.231+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment140_end2end_single.ensure_dirs manual__2025-10-02T05:31:21.972272+00:00 [queued]>
+[2025-10-02T05:31:25.231+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-10-02T05:31:25.236+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): ensure_dirs> on 2025-10-02 05:31:21.972272+00:00
+[2025-10-02T05:31:25.241+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=138) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-02T05:31:25.242+0000] {standard_task_runner.py:63} INFO - Started process 140 to run task
+[2025-10-02T05:31:25.242+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sentiment140_end2end_single', 'ensure_dirs', 'manual__2025-10-02T05:31:21.972272+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/edaproject.py', '--cfg-path', '/tmp/tmp90rthtea']
+[2025-10-02T05:31:25.244+0000] {standard_task_runner.py:91} INFO - Job 23: Subtask ensure_dirs
+[2025-10-02T05:31:25.270+0000] {task_command.py:426} INFO - Running <TaskInstance: sentiment140_end2end_single.ensure_dirs manual__2025-10-02T05:31:21.972272+00:00 [running]> on host 590373856cb4
+[2025-10-02T05:31:25.306+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment140_end2end_single' AIRFLOW_CTX_TASK_ID='ensure_dirs' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T05:31:21.972272+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T05:31:21.972272+00:00'
+[2025-10-02T05:31:25.307+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-02T05:31:25.324+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-02T05:31:25.324+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-02T05:31:25.328+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=sentiment140_end2end_single, task_id=ensure_dirs, run_id=manual__2025-10-02T05:31:21.972272+00:00, execution_date=20251002T053121, start_date=20251002T053125, end_date=20251002T053125
+[2025-10-02T05:31:25.342+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-02T05:31:25.353+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-02T05:31:25.354+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

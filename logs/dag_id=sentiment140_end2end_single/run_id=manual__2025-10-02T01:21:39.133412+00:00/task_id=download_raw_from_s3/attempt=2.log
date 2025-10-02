@@ -1,0 +1,40 @@
+[2025-10-02T01:26:42.223+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-02T01:26:42.228+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment140_end2end_single.download_raw_from_s3 manual__2025-10-02T01:21:39.133412+00:00 [queued]>
+[2025-10-02T01:26:42.231+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment140_end2end_single.download_raw_from_s3 manual__2025-10-02T01:21:39.133412+00:00 [queued]>
+[2025-10-02T01:26:42.231+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2025-10-02T01:26:42.235+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): download_raw_from_s3> on 2025-10-02 01:21:39.133412+00:00
+[2025-10-02T01:26:42.239+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sentiment140_end2end_single', 'download_raw_from_s3', 'manual__2025-10-02T01:21:39.133412+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/edaproject.py', '--cfg-path', '/tmp/tmpkk4jrgpu']
+[2025-10-02T01:26:42.241+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask download_raw_from_s3
+[2025-10-02T01:26:42.240+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=6851) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-10-02T01:26:42.242+0000] {standard_task_runner.py:63} INFO - Started process 6854 to run task
+[2025-10-02T01:26:42.258+0000] {task_command.py:426} INFO - Running <TaskInstance: sentiment140_end2end_single.download_raw_from_s3 manual__2025-10-02T01:21:39.133412+00:00 [running]> on host 619c97ee2164
+[2025-10-02T01:26:42.284+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment140_end2end_single' AIRFLOW_CTX_TASK_ID='download_raw_from_s3' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T01:21:39.133412+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T01:21:39.133412+00:00'
+[2025-10-02T01:26:42.285+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-02T01:26:42.290+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-02T01:26:42.290+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/edaproject.py", line 82, in _download_raw_from_s3
+    assert CSV_S3_URI and CSV_S3_URI.startswith("s3://"), "Set CSV_S3_URI like s3://bucket/path/main-data.csv"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Set CSV_S3_URI like s3://bucket/path/main-data.csv
+[2025-10-02T01:26:42.294+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=sentiment140_end2end_single, task_id=download_raw_from_s3, run_id=manual__2025-10-02T01:21:39.133412+00:00, execution_date=20251002T012139, start_date=20251002T012642, end_date=20251002T012642
+[2025-10-02T01:26:42.298+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 9 for task download_raw_from_s3 (Set CSV_S3_URI like s3://bucket/path/main-data.csv; 6854)
+[2025-10-02T01:26:42.346+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-10-02T01:26:42.352+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1296 AirflowProviderDeprecationWarning: Call to deprecated class SnowflakeOperator. (This class is deprecated. Please use `***.providers.common.sql.operators.sql.SQLExecuteQueryOperator`. Also, you can provide `hook_params={'warehouse': <warehouse>, 'database': <database>, 'role': <role>, 'schema': <schema>, 'authenticator': <authenticator>,'session_parameters': <session_parameters>}`.)
+[2025-10-02T01:26:42.358+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-02T01:26:42.360+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

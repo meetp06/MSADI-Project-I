@@ -1,0 +1,47 @@
+[2025-10-02T07:59:40.504+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-10-02T07:59:40.511+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sentiment140_end2end_single.upload_to_s3 manual__2025-10-02T07:59:02.866757+00:00 [queued]>
+[2025-10-02T07:59:40.514+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sentiment140_end2end_single.upload_to_s3 manual__2025-10-02T07:59:02.866757+00:00 [queued]>
+[2025-10-02T07:59:40.514+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-10-02T07:59:40.518+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): upload_to_s3> on 2025-10-02 07:59:02.866757+00:00
+[2025-10-02T07:59:40.521+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=957) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-10-02T07:59:40.522+0000] {standard_task_runner.py:63} INFO - Started process 959 to run task
+[2025-10-02T07:59:40.524+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sentiment140_end2end_single', 'upload_to_s3', 'manual__2025-10-02T07:59:02.866757+00:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/edaproject.py', '--cfg-path', '/tmp/tmprtco3a4o']
+[2025-10-02T07:59:40.526+0000] {standard_task_runner.py:91} INFO - Job 99: Subtask upload_to_s3
+[2025-10-02T07:59:40.549+0000] {task_command.py:426} INFO - Running <TaskInstance: sentiment140_end2end_single.upload_to_s3 manual__2025-10-02T07:59:02.866757+00:00 [running]> on host 9d9a5d472595
+[2025-10-02T07:59:40.580+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='sentiment140_end2end_single' AIRFLOW_CTX_TASK_ID='upload_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2025-10-02T07:59:02.866757+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-02T07:59:02.866757+00:00'
+[2025-10-02T07:59:40.580+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-10-02T07:59:40.593+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/feature_correlations_20251002T073223Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/feature_correlations_20251002T073223Z.csv
+[2025-10-02T07:59:40.596+0000] {base.py:84} INFO - Using connection ID 'aws_default' for task execution.
+[2025-10-02T07:59:40.596+0000] {connection_wrapper.py:384} INFO - AWS Connection (conn_id='aws_default', conn_type='aws') credentials retrieved from login and password.
+[2025-10-02T07:59:41.344+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_words_20251002T074056Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_words_20251002T074056Z.png
+[2025-10-02T07:59:41.452+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T075914Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T075914Z.png
+[2025-10-02T07:59:41.523+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_chars_20251002T074056Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_chars_20251002T074056Z.png
+[2025-10-02T07:59:41.617+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_chars_20251002T075503Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_chars_20251002T075503Z.png
+[2025-10-02T07:59:41.720+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T075503Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T075503Z.csv
+[2025-10-02T07:59:41.786+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T074056Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T074056Z.csv
+[2025-10-02T07:59:41.852+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_chars_20251002T075914Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_chars_20251002T075914Z.png
+[2025-10-02T07:59:41.948+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/eda_summary_20251002T075503Z.json -> s3://298a1/sentiment140/eda/20251002T075914Z/eda_summary_20251002T075503Z.json
+[2025-10-02T07:59:42.023+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T073223Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T073223Z.png
+[2025-10-02T07:59:42.090+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_words_20251002T073223Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_words_20251002T073223Z.png
+[2025-10-02T07:59:42.158+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/eda_summary_20251002T074056Z.json -> s3://298a1/sentiment140/eda/20251002T075914Z/eda_summary_20251002T074056Z.json
+[2025-10-02T07:59:42.231+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/feature_correlations_20251002T075503Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/feature_correlations_20251002T075503Z.csv
+[2025-10-02T07:59:42.305+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/eda_summary_20251002T073223Z.json -> s3://298a1/sentiment140/eda/20251002T075914Z/eda_summary_20251002T073223Z.json
+[2025-10-02T07:59:42.379+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/feature_correlations_20251002T075914Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/feature_correlations_20251002T075914Z.csv
+[2025-10-02T07:59:42.437+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T075914Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T075914Z.csv
+[2025-10-02T07:59:42.493+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_words_20251002T075914Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_words_20251002T075914Z.png
+[2025-10-02T07:59:42.576+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T075503Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T075503Z.png
+[2025-10-02T07:59:42.656+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/feature_correlations_20251002T074056Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/feature_correlations_20251002T074056Z.csv
+[2025-10-02T07:59:42.722+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_words_20251002T075503Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_words_20251002T075503Z.png
+[2025-10-02T07:59:42.813+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/eda_summary_20251002T075914Z.json -> s3://298a1/sentiment140/eda/20251002T075914Z/eda_summary_20251002T075914Z.json
+[2025-10-02T07:59:42.887+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/hist_len_chars_20251002T073223Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/hist_len_chars_20251002T073223Z.png
+[2025-10-02T07:59:42.983+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T074056Z.png -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T074056Z.png
+[2025-10-02T07:59:43.075+0000] {logging_mixin.py:188} INFO - Uploading EDA: /tmp/sentiment140_eda_artifacts/class_balance_20251002T073223Z.csv -> s3://298a1/sentiment140/eda/20251002T075914Z/class_balance_20251002T073223Z.csv
+[2025-10-02T07:59:43.145+0000] {logging_mixin.py:188} INFO - Uploading CLEAN: /tmp/train_clean.csv.gz -> s3://298a1/sentiment140/cleaned/20251002T075914Z/train_clean.csv.gz
+[2025-10-02T07:59:51.965+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-10-02T07:59:51.968+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-10-02T07:59:51.984+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=sentiment140_end2end_single, task_id=upload_to_s3, run_id=manual__2025-10-02T07:59:02.866757+00:00, execution_date=20251002T075902, start_date=20251002T075940, end_date=20251002T075951
+[2025-10-02T07:59:52.013+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-10-02T07:59:52.051+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-02T07:59:52.053+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
